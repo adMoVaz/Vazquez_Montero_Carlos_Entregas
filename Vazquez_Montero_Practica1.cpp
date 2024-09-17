@@ -1,3 +1,5 @@
+/*La complejidad algotimica es de O(n²)*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
