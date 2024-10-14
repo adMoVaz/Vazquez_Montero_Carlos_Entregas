@@ -69,11 +69,11 @@ int main() {
     auto end = high_resolution_clock::now();
     duration<double> tiempo = end - start;
 
-    cout << "\nLa distancia más corta es: " << distanciaMinima << "\n";
+    cout << "\nLa distancia mas corta es: " << distanciaMinima << "\n";
     cout << "Entre los puntos (" << punto1.x << ", " << punto1.y << ") y ("
          << punto2.x << ", " << punto2.y << ")\n";
 
-    cout << "Tiempo de ejecución: " << tiempo.count() << " segundos\n";
+    cout << "Tiempo de ejecucion: " << tiempo.count() << " segundos\n";
 
     return 0;
 }
