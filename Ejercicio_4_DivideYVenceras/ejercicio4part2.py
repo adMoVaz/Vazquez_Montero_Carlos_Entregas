@@ -55,13 +55,15 @@ def closest_pair(points):
 
     return closest_pair_recursive(points_sorted_x, points_sorted_y)
 
-num_points = 10
-points = [(round(random.uniform(-10, 10), 1), round(random.uniform(-10, 10), 1)) for _ in range(num_points)]
+num_points = int(input("Ingrese la cantidad de numeros a generar: "))
+points = [(round(random.uniform(-9999, 9999), 1), round(random.uniform(-9999, 9999), 1)) for _ in range(num_points)]
 print("Pares de puntos generados:", points)
 
-start_time = time.time()
+start_time = time.perf_counter()
 point1, point2, min_distance = closest_pair(points)
-end_time = time.time()
+end_time = time.perf_counter()
 
-print(f"El par de puntos mas cercanos son el punto {point1} y el punto {point2} con una distancia de : {round(min_distance, 1)}")
-print(f"Tiempo de ejecucion: {end_time - start_time:.6f} segundos")
+elapsed_time_microseconds = (end_time - start_time) * 1_000_000 
+
+print(f"El par de puntos más cercanos son el punto {point1} y el punto {point2} con una distancia de: {round(min_distance, 1)}")
+print(f"Tiempo de ejecución: {elapsed_time_microseconds:.0f} microsegundos")
