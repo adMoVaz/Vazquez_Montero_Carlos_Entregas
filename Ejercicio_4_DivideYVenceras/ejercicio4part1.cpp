@@ -5,8 +5,10 @@
 #include <algorithm>
 #include <cmath>
 #include <iomanip>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 struct Coordenada {
     float x;
@@ -41,6 +43,8 @@ int main() {
         coordenadas.push_back(coord);
     }
 
+    auto start = high_resolution_clock::now();
+
     sort(coordenadas.begin(), coordenadas.end(), compararPorX);
 
     cout << fixed << setprecision(1);
@@ -62,10 +66,14 @@ int main() {
         }
     }
 
+    auto end = high_resolution_clock::now();
+    duration<double> tiempo = end - start;
+
     cout << "\nLa distancia más corta es: " << distanciaMinima << "\n";
     cout << "Entre los puntos (" << punto1.x << ", " << punto1.y << ") y ("
          << punto2.x << ", " << punto2.y << ")\n";
 
+    cout << "Tiempo de ejecución: " << tiempo.count() << " segundos\n";
+
     return 0;
 }
-//O(nlogn)
