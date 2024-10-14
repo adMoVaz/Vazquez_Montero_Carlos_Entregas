@@ -1,5 +1,6 @@
 import random
 import math
+import time
 
 def euclidean_distance(p1, p2):
     return math.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
@@ -56,7 +57,11 @@ def closest_pair(points):
 
 num_points = 10
 points = [(round(random.uniform(-10, 10), 1), round(random.uniform(-10, 10), 1)) for _ in range(num_points)]
-print("Puntos Generados:", points)
+print("Pares de puntos generados:", points)
 
+start_time = time.time()
 point1, point2, min_distance = closest_pair(points)
-print(f"El par mas cercano son los puntos {point1} y {point2} con una distancia de: {round(min_distance, 1)}")
+end_time = time.time()
+
+print(f"El par de puntos mas cercanos son el punto {point1} y el punto {point2} con una distancia de : {round(min_distance, 1)}")
+print(f"Tiempo de ejecucion: {end_time - start_time:.6f} segundos")
