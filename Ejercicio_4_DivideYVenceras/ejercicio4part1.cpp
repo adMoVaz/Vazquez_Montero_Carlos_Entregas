@@ -16,7 +16,7 @@ struct Coordenada {
 };
 
 float generarNumeroAleatorio(float min, float max) {
-    return min + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (max - min)));
+    return min + (rand()) / ((RAND_MAX / (max - min)));
 }
 
 bool compararPorX(const Coordenada& a, const Coordenada& b) {
@@ -38,8 +38,8 @@ int main() {
 
     for (int i = 0; i < cantidad; ++i) {
         Coordenada coord;
-        coord.x = generarNumeroAleatorio(-10.0f, 10.0f);
-        coord.y = generarNumeroAleatorio(-10.0f, 10.0f);
+        coord.x = generarNumeroAleatorio(-9999.0f, 9999.0f);
+        coord.y = generarNumeroAleatorio(-9999.0f, 9999.0f);
         coordenadas.push_back(coord);
     }
 
@@ -67,13 +67,13 @@ int main() {
     }
 
     auto end = high_resolution_clock::now();
-    duration<double> tiempo = end - start;
+    auto tiempo = duration_cast<microseconds>(end - start);
 
-    cout << "\nLa distancia mas corta es: " << distanciaMinima << "\n";
+    cout << "\nLa distancia más corta es: " << distanciaMinima << "\n";
     cout << "Entre los puntos (" << punto1.x << ", " << punto1.y << ") y ("
          << punto2.x << ", " << punto2.y << ")\n";
 
-    cout << "Tiempo de ejecucion: " << tiempo.count() << " segundos\n";
+    cout << "Tiempo de ejecución: " << tiempo.count() << " microsegundos\n";
 
     return 0;
 }
